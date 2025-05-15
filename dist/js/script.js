@@ -18,3 +18,24 @@ hamburger.addEventListener('click', function(){
     hamburger.classList.toggle('hamburger-active');
     navMenu.classList.toggle('hidden');
 });
+
+///category portfolio
+    function filterProjects(category) {
+    const cards = document.querySelectorAll('[data-category]');
+
+    cards.forEach(card => {
+      const cardCategory = card.getAttribute('data-category');
+
+      // Jika kategori adalah 'all', tampilkan semua
+      if (category === 'all' || cardCategory === category) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  }
+
+  // Tampilkan semua saat halaman pertama kali dimuat
+  document.addEventListener('DOMContentLoaded', () => {
+    filterProjects('all');
+  });
