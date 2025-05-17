@@ -20,22 +20,41 @@ hamburger.addEventListener('click', function(){
 });
 
 ///category portfolio
-    function filterProjects(category) {
-    const cards = document.querySelectorAll('[data-category]');
+function filterProjects(category) {
+  const cards = document.querySelectorAll('.project-card');
 
-    cards.forEach(card => {
-      const cardCategory = card.getAttribute('data-category');
+  cards.forEach(card => {
+    const cardCategory = card.getAttribute('data-category');
 
-      // Jika kategori adalah 'all', tampilkan semua
-      if (category === 'all' || cardCategory === category) {
-        card.classList.remove('hidden');
-      } else {
-        card.classList.add('hidden');
-      }
-    });
-  }
+    if (category === 'all' || cardCategory === category) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+}
 
   // Tampilkan semua saat halaman pertama kali dimuat
   document.addEventListener('DOMContentLoaded', () => {
     filterProjects('all');
+  });
+
+  ///category filterCertificate
+ function filterCertificate(category) {
+  const cards = document.querySelectorAll('.certificate-card');
+
+  cards.forEach(card => {
+    const cardCategory = card.getAttribute('data-category');
+
+    if (category === 'all' || cardCategory === category) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+}
+
+  // Tampilkan semua saat halaman pertama kali dimuat
+  document.addEventListener('DOMContentLoaded', () => {
+    filterCertificate('all');
   });
